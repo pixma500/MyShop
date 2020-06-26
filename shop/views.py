@@ -3,10 +3,10 @@ from .models import Category, Product, Tag
 from cart.forms import CartAddProductForm
 
 # Create your views here.
-def home(request):
-    return render(request, 'shop/home.html')
+#def home(request):
+    #return render(request, 'shop/home.html')
 
-def product_list(request, category_slug=None):
+def product_list(request, category_slug=None,):
     tags = Tag.objects.all()
     category = None
     categories = Category.objects.all()
@@ -19,6 +19,19 @@ def product_list(request, category_slug=None):
                 'categories': categories,
                 'products': products,
                  'tags':tags})
+
+def tag_list(request,tags_slug=None,):
+    tags_all= Tag.objects.all()
+    tag=None
+    products = Product.objects.filter(available=True)
+    if tags_slug:
+        tag = get_object_or_404(Tag, slug=tags_slug)
+        products = products.filter(tags=tag)
+    return render(request, 'shop/home.html',
+                {'tags_all': tags_all,
+                'products': products,
+                 'tag':tag})
+
 
 def product_detail(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug, available=True)

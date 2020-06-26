@@ -26,6 +26,10 @@ class Tag (models.Model):
         verbose_name = 'тег'
         verbose_name_plural = 'теги'
 
+    def get_absolute_url(self):
+        return reverse('shop:product_list_by_tag', args=[self.slug])
+
+
 
 
     def __str__(self):

@@ -20,6 +20,7 @@
 	<link href="{% static 'css/responsive.css'%}" rel="stylesheet" type="text/css">
 	<link href="{% static 'css/magnific-popup.css'%}" rel="stylesheet" type="text/css">
 	<link href="{% static 'css/animate.css'%}" rel="stylesheet" type="text/css">
+  <link href="{% static "css/base.css" %}" rel="stylesheet">
 
     <script type="text/javascript" src="{% static 'js/jquery.1.8.3.min.js'%}"></script>
 	<script type="text/javascript" src="{% static 'js/bootstrap.js'%}"></script>
@@ -57,7 +58,7 @@
 			<ul class="main-nav">
 				<li><a href="#header">Home</a></li>
 				<li><a href="#service">Services</a></li>
-				<li><a href="#Portfolio">Portfolio</a></li>
+				<li><a href="#Portfolio">Загадай желание</a></li>
 				<li class="small-logo"><a href="#header"><img src="{%static 'img/small-logo.png' %}" alt=""></a></li>
 
 				<li><a href="#team">Team</a></li>
@@ -169,55 +170,36 @@
 	</section>
 	<!--main-section alabaster-end-->
 
-
-
 	<section class="main-section paddind" id="Portfolio">
 		<!--main-section-start-->
 		<div class="container">
-			<h2>Portfolio</h2>
-			<h6>Fresh portfolio of designs that will keep you wanting more.</h6>
-			<div class="portfolioFilter">
+			<h2>Мое желание</h2>
+			<h6>я хочу:</h6>
 				<ul class="Portfolio-nav wow fadeIn delay-02s">
-					<li><a href="#" data-filter="*" class="current">All</a></li>
-					<li><a href="#" data-filter=".branding">Branding</a></li>
-					<li><a href="#" data-filter=".webdesign">Web design</a></li>
-					<li><a href="#" data-filter=".printdesign">Print design</a></li>
-					<li><a href="#" data-filter=".photography">Photography</a></li>
+                    {% for c in tags_all%}
+
+                    <li><a href="{{c.get_absolute_url}}#Portfolio">{{c.title}}</a></li>
+                    {% endfor %}
 				</ul>
 			</div>
 
-		</div>
-		<div class="portfolioContainer wow fadeInUp delay-04s">
-			<div class=" Portfolio-box printdesign">
-				<a href="img/Portfolio-pic1.jpg"><img src="{%static 'img/Portfolio-pic1.jpg' %}" alt=""></a>
-				<h3>Foto Album</h3>
-				<p>Print Design</p>
+    		<div class="portfolioContainer wow fadeInUp delay-04s">
+             <div id="main" class="product-list">
+                {% for product in products|slice:":6" %}
+
+
+
+                <div class="item">
+
+				<a href="{{product.get_absolute_url}}"><img src="{{ product.image.url }}"></a>
+                    <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
 			</div>
-			<div class="Portfolio-box webdesign">
-				<a href="{% static 'img/Portfolio-pic2.jpg' %}"><img src="{%static 'img/Portfolio-pic2.jpg' %}" alt=""></a>
-				<h3>Luca Theme</h3>
-				<p>Web Design</p>
+
+            {% endfor%}
 			</div>
-			<div class=" Portfolio-box branding">
-				<a href="img/Portfolio-pic3.jpg"><img src="{%static 'img/Portfolio-pic3.jpg' %}" alt=""></a>
-				<h3>Uni Sans</h3>
-				<p>Branding</p>
-			</div>
-			<div class=" Portfolio-box photography">
-				<a href="img/Portfolio-pic4.jpg"><img src="{%static 'img/Portfolio-pic4.jpg'%}" alt=""></a>
-				<h3>Vinyl Record</h3>
-				<p>Photography</p>
-			</div>
-			<div class=" Portfolio-box branding">
-				<a href="img/Portfolio-pic5.jpg"><img src="{%static 'img/Portfolio-pic5.jpg'%}" alt=""></a>
-				<h3>Hipster</h3>
-				<p>Branding</p>
-			</div>
-			<div class=" Portfolio-box photography">
-				<a href="img/Portfolio-pic6.jpg"><img src="{%static 'img/Portfolio-pic6.jpg'%}" alt=""></a>
-				<h3>Windmills</h3>
-				<p>Photography</p>
-			</div>
+
+
+
 		</div>
 	</section>
 	<!--main-section-end-->
@@ -295,21 +277,6 @@
 			</div>
 		</section>
 	</div>
-	<footer class="footer">
-		<div class="container">
-			<div class="footer-logo"><a href="#"><img src="{%static 'img/footer-logo.png'%}" alt=""></a></div>
-			<span class="copyright">&copy; Knight Theme. All Rights Reserved</span>
-			<div class="credits">
-				<!--
-          All the links in the footer should remain intact.
-          You can delete the links only if you purchased the pro version.
-          Licensing information: https://bootstrapmade.com/license/
-          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Knight
-        -->
-				Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-			</div>
-		</div>
-	</footer>
 
 
 	<script type="text/javascript">
