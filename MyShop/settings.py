@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'shop.apps.ShopConfig',
     'orders.apps.OrdersConfig',
-
+    'phone_field'
 
 ]
 

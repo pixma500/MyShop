@@ -6,30 +6,28 @@
 {% endblock %}
 {% block te %}
      <link href="{% static "css/style.css" %}" rel="stylesheet">
+<div id="header">
 
+
+</div>
 {% endblock te %}
 {% block content %}
 <div id="sidebar">
 <h3>Категории</h3>
 <ul>
-<li {% if not category %}class="selected"{% endif %}>
+<li {% if not prod_sale %}class="selected"{% endif %}>
     <a href="{% url "shop:product_list" %}">Все</a> </li>
-<li>
+<li class="selected">
     <a href="{% url "shop:sale" %}">Скидки</a></li>
-</li>
-{% for c in categories %}
-<li {% if category.slug == c.slug %}class="selected" {% endif %}>
-<a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
-</li>
-{% endfor %}
 
 
+</ul>
 
 </ul>
 </div>
 <div id="main" class="product-list">
-<h1>{% if category %}{{ category.name }}{% else %}Наша продукция{% endif %}</h1>
-{% for product in products %}
+<h1>Выгодные предложения</h1>
+{% for product in prod_sale %}
 <div class="item">
 <a href="{{ product.get_absolute_url }}">
 <img src="{% if product.image %}{{ product.image.url }}{%else %}{% static "img/no_image.png" %}{% endif %}">

@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-
+from decimal import Decimal
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=100, db_index=True, verbose_name='категория' )
@@ -45,10 +45,16 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products/%Y/%m/%d',
                               blank=True, verbose_name='Изображение' )
     description = models.TextField(blank=True, verbose_name='Описание' )
-    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена' )
+    price = models.DecimalField(max_digits=8, decimal_places=0, verbose_name='Цена' )
     available = models.BooleanField(default=True, verbose_name='Наличие' )
     created = models.DateTimeField(auto_now_add=True,verbose_name='Дата создания' )
-    updated = models.DateTimeField(auto_now=True, verbose_name='Дата обнавлентя' )
+    updated = models.DateTimeField(auto_now=True, verbose_name='Дата обновления' )
+    sale = models.DecimalField(max_digits=3, decimal_places=0, blank=True, default=0,verbose_name='Скидка в %')
+
+
+    def get_price(self):
+        return Decimal(self.price*(1 -self.sale/100)).quantize(Decimal('0.'))
+
 
     class Meta:
         ordering = ('-created','name',)

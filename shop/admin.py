@@ -13,7 +13,7 @@ class TagAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug', 'price', 'available', 'created', 'updated']
-    list_filter = ['available', 'created', 'updated', 'tags']
-    list_editable = ['price', 'available']
+    list_display = ['name', 'slug', 'price', 'sale','available', 'created', 'updated']
+    list_filter = ['available', 'sale','created', 'updated', 'tags']
+    list_editable = ['price', 'sale','available']
     prepopulated_fields = {'slug': ('name',)}
