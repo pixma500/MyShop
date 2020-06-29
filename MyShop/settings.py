@@ -38,10 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'debug_toolbar',
     'shop.apps.ShopConfig',
     'orders.apps.OrdersConfig',
-    'phone_field'
+
 
 ]
 
@@ -53,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+
 ]
 
 ROOT_URLCONF = 'MyShop.urls'
@@ -135,4 +134,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 CART_SESSION_ID = 'cart'
-INTERNAL_IPS = ['127.0.0.1']
+
+
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'svidin.zp@gmail.com'
+EMAIL_HOST_PASSWORD = 'p2550100'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
