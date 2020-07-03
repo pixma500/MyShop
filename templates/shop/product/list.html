@@ -8,7 +8,9 @@
      <link href="{% static "css/style.css" %}" rel="stylesheet">
 
 {% endblock te %}
+
 {% block content %}
+
 <div id="sidebar">
 <h3>Категории</h3>
 <ul>
@@ -29,7 +31,7 @@
 </div>
 <div id="main" class="product-list">
 <h1>{% if category %}{{ category.name }}{% else %}Наша продукция{% endif %}</h1>
-{% for product in products %}
+{% for product in page_obj %}
 <div class="item">
 <a href="{{ product.get_absolute_url }}">
 <img src="{% if product.image %}{{ product.image.url }}{%else %}{% static "img/no_image.png" %}{% endif %}">
@@ -37,10 +39,20 @@
 <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
 <br>
 {% if product.sale %}
-    <strike>{{ product.price }} грн</strike> {{ product.get_price }} грн
+    <style>
+	   .strike {
+	   text-decoration: line-through;
+	   color: #d51010;
+	   }
+	</style>
+    <span class="strike">{{ product.price }} грн</span> {{ product.get_price }} грн
 {% else %}{{ product.price }} грн
 {% endif %}
 </div>
 {% endfor %}
 </div>
+
+  {% include "shop/product/pagination.html" %}
+
+
 {% endblock %}

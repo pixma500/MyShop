@@ -5,7 +5,7 @@
 {% if category %}Категория: {{ category.name }}{% else %}Наши товары{% endif %}
 {% endblock %}
 {% block te %}
-     <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet" xmlns="http://www.w3.org/1999/html">
 <div id="header">
 
 
@@ -35,7 +35,13 @@
 <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
 <br>
 {% if product.sale %}
-    <strike>{{ product.price }} грн</strike> {{ product.get_price }} грн
+    <style>
+	   .strike {
+	   text-decoration: line-through;
+	   color: #d51010;
+	   }
+	</style>
+    <span class="strike">{{ product.price }} грн</span> {{ product.get_price }} грн
 {% else %}{{ product.price }} грн
 {% endif %}
 </div>

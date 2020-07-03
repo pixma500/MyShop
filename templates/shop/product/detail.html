@@ -19,8 +19,15 @@
 <a href="{{ product.category.get_absolute_url }}">Категория: {{product.category }}</a>
 </h4>
 
+
 <p class="price">Цена: {% if product.sale %}
-    <strike>{{ product.price }} грн</strike> {{ product.get_price }} грн
+  <style>
+	   .strike {
+	   text-decoration: line-through;
+	   color: #d51010;
+	   }
+	</style>
+    <span class="strike">{{ product.price }} грн </span> {{ product.get_price }} грн
 {% else %}{{ product.price }} грн
 {% endif %} </p><br>
 <form action="{% url "cart:cart_add" product.id %}" method="post">

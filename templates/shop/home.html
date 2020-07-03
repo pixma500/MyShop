@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>DHC</title>
+    <title>{% block title%} DHC {% endblock %}</title>
     </head>
     {% load static %}
 
 
-<!--    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png">
-	<link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="img/x-icon">-->
+
 
 	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,700italic,600italic,400italic,300italic,800,700,600' rel='stylesheet' type='text/css'>
@@ -33,7 +32,7 @@
 	<script type="text/javascript" src="{% static 'js/magnific-popup.js'%}"></script>
 	<script src="{% static 'contactform/contactform.js'%}"></script>
 
-
+{% block tit %}
 <body>
 	<header class="header" id="header">
 		<!--header-start-->
@@ -51,72 +50,71 @@
 			<a class="link animated fadeInUp delay-1s servicelink" href="{% url "shop:product_list" %}">Онлайн магазин</a>
 		</div>
 	</header>
-	<!--header-end-->
+{% endblock %}	<!--header-end-->
 
 	<nav class="main-nav-outer" id="test">
 		<!--main-nav-start-->
 		<div class="container">
 			<ul class="main-nav">
-				<li><a href="#header">Home</a></li>
-				<li><a href="#service">Services</a></li>
+				<li><a href="#header">Домой</a></li>
+				<li><a href="#service">О нас</a></li>
 				<li><a href="#Portfolio">Загадай желание</a></li>
-				<li class="small-logo"><a href="#header"><img src="{%static 'img/small-logo.png' %}" alt=""></a></li>
-				<li><a href="#team">Team</a></li>
-				<li><a href="#contact">Contact</a></li>
+				<li><a href="#team">Девиз</a></li>
+				<li><a href="#contact">Контакты</a></li>
 			</ul>
 			<a class="res-nav_click" href="#"><i class="fa fa-bars"></i></a>
 		</div>
 	</nav>
 	<!--main-nav-end-->
 
-
+{% block content%}
 
 	<section class="main-section" id="service">
 		<!--main-section-start-->
 		<div class="container">
-			<h2>Services</h2>
-			<h6>We offer exceptional service with complimentary hugs.</h6>
+			<h2>У НАС ВЫ ПОЛУЧИТЕ:</h2>
+
 			<div class="row">
 				<div class="col-lg-4 col-sm-6 wow fadeInLeft delay-05s">
 					<div class="service-list">
 						<div class="service-list-col1">
-							<i class="fa fa-paw"></i>
+							<i class="fa-heart-o"></i>
 						</div>
 						<div class="service-list-col2">
-							<h3>branding &amp; identity</h3>
-							<p>Proin iaculis purus digni consequat sem digni ssim. Donec entum digni ssim.</p>
+							<h3>Японское качество</h3>
+							<p>Все товары сделаны в Японии и предназначены для внутреннего рынка. Гарантия качества обеспечена.</p>
 						</div>
 					</div>
 					<div class="service-list">
 						<div class="service-list-col1">
-							<i class="fa fa-gear"></i>
+							<i class="fa-star-o"></i>
 						</div>
 						<div class="service-list-col2">
-							<h3>web development</h3>
-							<p>Proin iaculis purus consequat sem digni ssim. Digni ssim porttitora .</p>
+							<h3>Приемлемые цены</h3>
+							<p>Мы предлагаем Вам товар по наилучшим ценам, также предлагаем систему скидок, бонусов и подарков.</p>
 						</div>
 					</div>
 					<div class="service-list">
 						<div class="service-list-col1">
-							<i class="fa fa-apple"></i>
+							<i class="fa-user-circle"></i>
 						</div>
 						<div class="service-list-col2">
-							<h3>mobile design</h3>
-							<p>Proin iaculis purus consequat digni sem digni ssim. Purus donec porttitora entum.</p>
+							<h3>Индивидуальный подход</h3>
+							<p>В нашем магазине индивидуальный подход к каждому клиенту. Если Вы желаете сделать заказ товара которого нет в нашем магазине - пишите нам. Мы постараемся отыскать его для Вас.</p>
 						</div>
 					</div>
 					<div class="service-list">
 						<div class="service-list-col1">
-							<i class="fa fa-medkit"></i>
+							<i class="fa-handshake-o"></i>
 						</div>
 						<div class="service-list-col2">
-							<h3>24/7 Support</h3>
-							<p>Proin iaculis purus consequat sem digni ssim. Sem porttitora entum.</p>
+							<h3>Консультацию 24/7</h3>
+							<p>Наши Консультанты ответят на все ваши вопросы и помогут определиться с выбором.</p>
 						</div>
 					</div>
 				</div>
 				<figure class="col-lg-8 col-sm-6  text-right wow fadeInUp delay-02s">
-					<img src="{%static 'img/macbook-pro.png' %}" alt="">
+					<img src="{%static 'img/12345.jpg' %}" alt="">
 				</figure>
 
 			</div>
@@ -134,33 +132,34 @@
 					<img src="{%static 'img/iphone.png' %}" alt="">
 				</figure>
 				<div class="col-lg-7 col-sm-8 featured-work">
-					<h2>featured work</h2>
-					<P class="padding-b">Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit.</P>
+					<h2>БОНУСЫ И ПОДАРКИ</h2>
+					<P class="padding-b">Преобретая у нас витамины и биологически активные добавки, Вы получаете: хорошее самочувствие,
+                    прилив энергии, бодрость. А также</P>
 					<div class="featured-box">
 						<div class="featured-box-col1 wow fadeInRight delay-02s">
 							<i class="fa fa-magic"></i>
 						</div>
 						<div class="featured-box-col2 wow fadeInRight delay-02s">
-							<h3>magic of theme development</h3>
-							<p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. </p>
+							<h3>Бесплатную доставку</h3>
+							<p>При заказе на сумму минимум 1500 грн доставка Новой почтой БЕСПЛАТНО!</p>
 						</div>
 					</div>
 					<div class="featured-box">
 						<div class="featured-box-col1 wow fadeInRight delay-04s">
-							<i class="fa fa-gift"></i>
+							<i class="fa-eercast"></i>
 						</div>
 						<div class="featured-box-col2 wow fadeInRight delay-04s">
-							<h3>neatly packaged</h3>
-							<p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. </p>
+							<h3>При оптовом заказе</h3>
+							<p>Для оптовых клиентов у нас действуют скидки. Свяжитесь с нами для детального обсуждения.</p>
 						</div>
 					</div>
 					<div class="featured-box">
 						<div class="featured-box-col1 wow fadeInRight delay-06s">
-							<i class="fa fa-dashboard"></i>
+							<i class="fa fa-gift"></i>
 						</div>
 						<div class="featured-box-col2 wow fadeInRight delay-06s">
-							<h3>SEO optimized</h3>
-							<p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. </p>
+							<h3>Подарочки</h3>
+							<p>В каждой посылочке ищите маленький сюрприз от нас. </p>
 						</div>
 					</div>
 					<a class="Learn-More" href="#">Learn More</a>
@@ -176,7 +175,7 @@
 			<h2>Мое желание</h2>
 			<h6>я хочу:</h6>
 				<ul class="Portfolio-nav wow fadeIn delay-02s">
-
+                 <li><a href="{% url "shop:sale" %}">Скидки</a></li>
                     {% for c in tags_all%}
 
                     <li><a href="{{c.get_absolute_url}}#Portfolio">{{c.title}}</a></li>
@@ -197,6 +196,7 @@
             {% endfor%}
 			</div>
 		</div>
+
 	</section>
 	<!--main-section-end-->
 
@@ -210,70 +210,77 @@
 	<section class="business-talking">
 		<!--business-talking-start-->
 		<div class="container">
-			<h2>Let’s Talk Business.</h2>
+			<h2>Будьте здоровы вместе с нами!</h2>
 		</div>
 	</section>
+        {% endblock %}
+
 	<!--business-talking-end-->
 	<div class="container">
 		<section class="main-section contact" id="contact">
-
 			<div class="row">
 				<div class="col-lg-6 col-sm-7 wow fadeInLeft">
 					<div class="contact-info-box address clearfix">
-						<h3><i class=" icon-map-marker"></i>Address:</h3>
-						<span>308 Negra Arroyo Lane<br>Albuquerque, New Mexico, 87111.</span>
+						<h3><i class=" icon-map-marker"></i>Адрес:</h3>
+						<span>г. Запорожье<br> </span>
+                        <span>Свидин Сергей<br> </span>
 					</div>
 					<div class="contact-info-box phone clearfix">
 						<h3><i class="fa fa-phone"></i>Phone:</h3>
-						<span>1-800-BOO-YAHH</span>
+						<span>(050) 835-19-22</span>
 					</div>
 					<div class="contact-info-box email clearfix">
 						<h3><i class="fa fa-pencil"></i>email:</h3>
-						<span>hello@knightstudios.com</span>
+						<span>svidin.zp@gmail.com</span>
 					</div>
 					<div class="contact-info-box hours clearfix">
-						<h3><i class="fa fa-clock-o"></i>Hours:</h3>
-						<span><strong>Monday - Thursday:</strong> 10am - 6pm<br><strong>Friday:</strong> People work on Fridays now?<br><strong>Saturday - Sunday:</strong> Best not to ask.</span>
+						<h3><i class="fa fa-clock-o"></i>Часы работы:</h3>
+						<span><strong>Понедельник - Суббота:</strong> 9 - 19<br><strong>Воскресение:</strong> По сильной необходимости<br></span>
 					</div>
 					<ul class="social-link">
-						<li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-						<li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-						<li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
-						<li class="gplus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-						<li class="dribbble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
+						<li class="facebook"><a href="https://www.facebook.com/beautyfromjapan2"><i class="fa fa-facebook"></i></a></li>
+						<li class="dribbble"><a href="https://www.instagram.com/ansvidina/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
 					</ul>
+
 				</div>
+
 				<div class="col-lg-6 col-sm-5 wow fadeInUp delay-05s">
+
 					<div class="form">
+                        <h2> <font  color=#808080 >Напишите нам</font></h2>
 
-						<div id="sendmessage">Your message has been sent. Thank you!</div>
-						<div id="errormessage"></div>
-						<form action="" method="post" role="form" class="contactForm">
-							<div class="form-group">
-								<input type="text" name="name" class="form-control input-text" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-								<div class="validation"></div>
-							</div>
-							<div class="form-group">
-								<input type="email" class="form-control input-text" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-								<div class="validation"></div>
-							</div>
-							<div class="form-group">
-								<input type="text" class="form-control input-text" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-								<div class="validation"></div>
-							</div>
-							<div class="form-group">
-								<textarea class="form-control input-text text-area" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-								<div class="validation"></div>
-							</div>
 
-							<div class="text-center"><button type="submit" class="input-btn">Send Message</button></div>
-						</form>
-					</div>
-				</div>
-			</div>
+
+						<form action="/orders/mail/" method="post" role="form" class="contactForm">
+
+                           {% csrf_token %}
+							<div class="form-group">
+								<input type="text" name="name"   class="form-control input-text" id="name" placeholder="Ваше имя" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />{{ form1.name }}
+								<div class="validation"></div>
+							</div>
+							<div class="form-group">
+
+                                <input type="text" class="form-control input-text" name="email"  id="email" placeholder="email" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                {{ form1.email }}
+								<div class="validation"></div>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control input-text" name="subject" id="subject" placeholder="Тема" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                                 {{ form1.subject }}
+								<div class="validation"></div>
+							</div>
+							<div class="form-group">
+								<textarea class="form-control input-text text-area" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Ваше сообщение"></textarea>
+                                {{ form1.message }}
+								<div class="validation"></div>
+							</div>
+							<div class="text-center"><button type="submit" class="input-btn">Отправить</button></div>
+
+                        </form>
+                    </div>
+            </div>
 		</section>
 	</div>
-
 
 	<script type="text/javascript">
 		$(document).ready(function(e) {
@@ -369,8 +376,4 @@
 
 		});
 	</script>
-
-
-
-
 </html>
